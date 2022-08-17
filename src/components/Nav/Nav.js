@@ -1,6 +1,8 @@
+import CartWidget from "../CartWidget/CartWidget";
+
 const Nav = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light fixed-top border-bottom">
+    <nav className="navbar navbar-expand-lg navbar-light border-bottom">
       <div className="container-fluid">
         <a className="navbar-brand" href="https://google.com">
           <img src="sneaker.png" alt="sneaker" width="50" height="50" />
@@ -88,6 +90,7 @@ const Nav = () => {
             <button className="btn btn-outline-primary" type="submit">
               Buscar
             </button>
+            <CartWidget />
           </form>
         </div>
       </div>
