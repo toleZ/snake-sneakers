@@ -1,11 +1,12 @@
 import CartWidget from "../CartWidget/CartWidget";
+import { GiConverseShoe } from "react-icons/gi";
 
 const Nav = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light border-bottom">
       <div className="container-fluid">
         <a className="navbar-brand" href="https://google.com">
-          <img src="sneaker.png" alt="sneaker" width="50" height="50" />
+          <GiConverseShoe />
           Sneak Sneakers
         </a>
         <button
