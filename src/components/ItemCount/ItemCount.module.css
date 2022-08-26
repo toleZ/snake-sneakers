@@ -1,8 +1,10 @@
 :root {
   --color-primary: #0d6efd;
 }
+
 .itemQuantContainer {
-  width: 18rem;
+  align-self: flex-end;
+  width: 100%;
   padding: 1rem;
 }
 

@@ -4,7 +4,6 @@ import { useState } from "react";
 
 const ItemCount = ({ stock, initial, onAdd }) => {
   const { itemQuantContainer, itemQuant, btns, addCartBtn } = styles;
-
   const [quant, setQuant] = useState(initial);
 
   const sumarProducto = () => {
