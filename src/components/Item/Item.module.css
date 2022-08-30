@@ -14,6 +14,7 @@
 }
 
 .item__card:hover{
+    cursor: pointer;
     transform: scale(1.05);
     border-color: #0d6efd;
     box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.3);
@@ -25,17 +26,20 @@
 }
 
 .item__title{
+    font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
     margin: .25rem 0;
 }
 
 .item__brand{
+    font-family: 'BioRhyme', serif;
     color: gray;
     font-size: 1rem;
     margin: .25rem 0;
 }
 
 .item__price{
+    font-family: 'Overpass', sans-serif;
     color: gray;
     font-size: 1rem;
 }

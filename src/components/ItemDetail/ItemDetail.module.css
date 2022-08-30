@@ -1,0 +1,19 @@
+.itemDetailContainer{
+    margin: 0 auto;
+    width: 95%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: .5rem;
+}
+
+.itemTitle{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.itemBrand, .itemPrice{
+    font-family: 'BioRhyme', serif;
+}
+
+.itemDescription{
+    font-family: 'Overpass', sans-serif;
+}

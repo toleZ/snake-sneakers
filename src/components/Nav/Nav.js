@@ -6,8 +6,8 @@ const Nav = () => {
     <nav className="navbar navbar-expand-lg navbar-light border-bottom">
       <div className="container-fluid">
         <a className="navbar-brand" href="https://google.com">
-          <GiConverseShoe />
           Sneak Sneakers
+          <GiConverseShoe />
         </a>
         <button
           className="navbar-toggler"
