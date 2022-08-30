@@ -1,15 +1,16 @@
 import styles from './ItemDetail.module.css'
 import ItemCount from "../ItemCount/ItemCount";
 
-const ItemDetail = (item) => {
-    const {name, brand, description, img, price, stock} = item.item
+const ItemDetail = ( { item } ) => {
+    const {name, brand, description, img, price, stock} = item
     const {itemDetailContainer, itemImg, itemTitle, itemBrand, itemDescription, itemPrice} = styles
 
     const onAdd = () => {
-        console.log(`Producto ${name} agregado al carrito`);
+        console.log(`Producto "${name}" agregado al carrito`);
     };
 
     return (
+        item.name !== undefined &&
         <div className={itemDetailContainer}>
             <img src={img} alt={`${brand} shoes`} className={itemImg}/>
             <h2 className={itemTitle}>{name}</h2>
