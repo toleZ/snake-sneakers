@@ -1,14 +1,15 @@
 import CartWidget from "../CartWidget/CartWidget";
 import { GiConverseShoe } from "react-icons/gi";
+import { Link } from 'react-router-dom'
 
 const Nav = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light border-bottom">
       <div className="container-fluid">
-        <a className="navbar-brand" href="https://google.com">
+        <Link to={'/'}className="navbar-brand">
           Sneak Sneakers
           <GiConverseShoe />
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -23,74 +24,65 @@ const Nav = () => {
         <div className="collapse navbar-collapse" id="navbarColor03">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link" href="https://google.com">
+              <Link className="nav-link" to={'/'}>
                 Inicio
-              </a>
+              </Link>
             </li>
             <li className="nav-item dropdown">
-              <a
+              <Link
                 className="nav-link dropdown-toggle"
-                href="https://google.com"
+                to={'/'}
                 id="navbarScrollingDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 Marcas
-              </a>
+              </Link>
               <ul
                 className="dropdown-menu"
                 aria-labelledby="navbarScrollingDropdown"
               >
                 <li>
-                  <a href="https://google.com" className="dropdown-item">
-                    Marca 1
-                  </a>
+                  <Link to={'/brand/Nike'} className="dropdown-item">
+                    Nike
+                  </Link>
                 </li>
                 <li>
-                  <a href="https://google.com" className="dropdown-item">
-                    Marca 2
-                  </a>
+                  <Link to={'/brand/Air Jordan'} className="dropdown-item">
+                    Air Jordan
+                  </Link>
                 </li>
                 <li>
-                  <a href="https://google.com" className="dropdown-item">
-                    Marca 3
-                  </a>
+                  <Link to={'/brand/Adidas Yeezy'} className="dropdown-item">
+                    Adidas
+                  </Link>
                 </li>
                 <li>
-                  <a href="https://google.com" className="dropdown-item">
-                    Marca 4
-                  </a>
+                  <Link to={'/brand/Converse'} className="dropdown-item">
+                    Converse
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="https://google.com">
-                    Otras marcas...
-                  </a>
+                  <Link to={'/brand/New Balance'} className="dropdown-item">
+                  New Balance
+                  </Link>
                 </li>
               </ul>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="https://google.com">
+              <Link className="nav-link" to={'/'}>
                 Nosotros
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="https://google.com">
+              <Link className="nav-link" to={'/'}>
                 FAQ
-              </a>
+              </Link>
             </li>
           </ul>
 
           <form className="d-flex">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Buscar producto"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-primary" type="submit">
-              Buscar
-            </button>
             <CartWidget />
           </form>
         </div>

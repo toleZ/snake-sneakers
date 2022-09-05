@@ -1,3 +1,9 @@
+:root{
+  --font-primary: 'Open Sans', sans-serif;
+  --font-secondary: 'BioRhyme', serif;
+  --font-tertiary: 'Overpass', sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
