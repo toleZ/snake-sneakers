@@ -70,16 +70,6 @@ const Nav = () => {
                 </li>
               </ul>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to={'/'}>
-                Nosotros
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to={'/'}>
-                FAQ
-              </Link>
-            </li>
           </ul>
 
           <form className="d-flex">
