@@ -1,5 +1,12 @@
+import Form from "../Form/Form"
+
 const Cart = () => {
-    return <h1>Carrito</h1>
+    return (
+        <>
+            <h1>Cart</h1>
+            <Form />
+        </>
+    )
 }
 
 export default Cart
