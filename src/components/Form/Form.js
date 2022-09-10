@@ -6,6 +6,7 @@ const Form = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
+    console.dir(e)
     console.log(`${name} ${lastName}`)
   }
 

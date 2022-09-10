@@ -22,7 +22,9 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         <GoPlus className={btns} onClick={sumarProducto} />
       </div>
 
-      <button className={addCartBtn} onClick={onAdd}>
+      <button className={addCartBtn} onClick={() => {
+        onAdd(quant)
+      }}>
         Agregar al carrito
       </button>
     </div>
