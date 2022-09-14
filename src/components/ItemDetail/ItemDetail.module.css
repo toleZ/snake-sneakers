@@ -21,21 +21,14 @@
     width: 100%;
     padding: 0.5rem;
     margin: 0.5rem 0;
+    color: #198754;
     border: 1px solid #198754;
     border-radius: 0.5rem;
     background-color: white;
     transition: all 300ms;
 }
 
-.goCartBtn .link{
-    text-decoration: none;
-    color: #198754;
-}
-
 .goCartBtn:hover{
-    background-color: #198754;
-}
-
-.goCartBtn:hover .link{
     color: white;
+    background-color: #198754;
 }

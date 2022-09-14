@@ -24,7 +24,7 @@ const ItemDetail = ( { item } ) => {
             <span className={itemPrice}>${price}</span>
             {
                 cant > 0 ?
-                    <button className={goCartBtn}><Link to='/cart' className={link}>Ir al carrito</Link></button> :
+                    <Link to='/cart' className={link}><button className={goCartBtn}>Ir al carrito</button></Link>:
                     <ItemCount initial={0} stock={stock} onAdd={onAdd}/>
             }
         </div>
