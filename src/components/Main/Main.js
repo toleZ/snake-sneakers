@@ -5,7 +5,7 @@ import {Route, Routes} from 'react-router-dom'
 
 const Main = () => {
   return (
-    <main>
+    <main style={{ margin: "1rem 0"}}>
       <Routes>
         <Route path="/" element={<ItemListContainer />} />
         <Route path="/brand/:brandName" element={<ItemListContainer />} />

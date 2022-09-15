@@ -1,17 +1,20 @@
 import styles from './ItemDetail.module.css'
 import ItemCount from "../ItemCount/ItemCount";
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../../context/CartContext';
 
 const ItemDetail = ( { item } ) => {
     const {name, brand, description, img, price, stock} = item
     const {itemDetailContainer, itemImg, itemTitle, itemBrand, itemDescription, itemPrice, goCartBtn, link} = styles
-    const [cant, setCant] = useState(0)
 
+    const {addToCart} = useContext(CartContext)
+
+    const [cant, setCant] = useState(0)
     const onAdd = (cnt) => {
         return cnt === 0 ? 
             console.error(`${cnt} no es una cantidad validad`) :
-            (console.log(`Se han agregado ${cnt} "${name}" al carrito`), setCant(cnt));
+            (setCant(cnt), addToCart(item, cnt))
     };
 
     return (
