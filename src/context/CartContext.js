@@ -14,19 +14,26 @@ const CartProvider = ({children}) => {
   }
 
   const removeItem = (itemId) => {
-    if(isInCart(itemId)){
-      const index = cart.findIndex(e => e.id === itemId)
-      const newCart = cart.slice(index, 1)
-      setCart(newCart)
-    }
+    /* 
+    const index = cart.findIndex(e => e.id === itemId)
+    const cartCopy = [...cart].splice(index, 1)
+    setCart(cartCopy) 
+    */
+
+    const cartFiltered = cart.filter(e => e.id !== itemId)
+    setCart(cartFiltered)
   }
 
   const clear = () => {
     setCart([])
   }
 
+  const cartItems = () => {
+    return [...cart].reduce((a, b)=> a.cant + b.cant, 0)
+  }
+
   return (
-    <CartContext.Provider value={{cart, addToCart, removeItem, clear, isInCart}}>
+    <CartContext.Provider value={{cart, addToCart, removeItem, clear, isInCart, cartItems}}>
       {children}
     </CartContext.Provider>
   )

@@ -25,7 +25,7 @@ const ItemDetail = ( { item } ) => {
             <p className={itemDescription}>{description}</p>
             <span className={itemPrice}>${price}</span>
             {
-                isInCart(item.id) === true ?
+                isInCart(item.id) ?
                     <Link to='/cart' className={link}><button className={goCartBtn}>Ir al carrito</button></Link>:
                     <ItemCount initial={0} stock={stock} onAdd={onAdd}/>
             }
