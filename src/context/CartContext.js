@@ -10,8 +10,28 @@ const CartProvider = ({children}) => {
   }
 
   const addToCart = (item, cant) => {
-    setCart([...cart, {...item, cant}])
+    if(isInCart(item.id)){
+      updateItemCant(item, cant)
+    }else{
+      cant > 0 && setCart([...cart, {...item, cant}])
+    }
   }
+
+  const updateItemCant = (item, cant) => {
+    const updateProducts = cart.map((prod) => {
+        if (prod.id === item.id) {
+            const productUpdated = {
+                ...prod,
+                cant: cant,
+            };
+
+            return productUpdated;
+        } else {
+            return prod;
+        }
+    });
+    setCart(updateProducts);
+};
 
   const removeItem = (itemId) => {
     /* 
@@ -38,7 +58,7 @@ const CartProvider = ({children}) => {
   }
 
   return (
-    <CartContext.Provider value={{cart, addToCart, removeItem, clear, isInCart, cartItems, cantOfItem}}>
+    <CartContext.Provider value={{cart, addToCart, removeItem, clear, isInCart, cartItems, cantOfItem, updateItemCant}}>
       {children}
     </CartContext.Provider>
   )
