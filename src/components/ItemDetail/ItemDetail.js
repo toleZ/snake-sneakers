@@ -3,6 +3,7 @@ import ItemCount from "../ItemCount/ItemCount";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
+import Spinner from '../Spinner/Spinner'
 
 const ItemDetail = ({ item }) => {
   const { name, brand, description, img, price, stock } = item;
@@ -27,9 +28,7 @@ const ItemDetail = ({ item }) => {
 
   if(item.name === undefined){
     return (
-      <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
+      <Spinner />
     )
   }
 

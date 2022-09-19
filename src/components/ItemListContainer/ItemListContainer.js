@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
+import Spinner from "../Spinner/Spinner";
 
 const ItemListContainer = () => {
   const [items, setItems] = useState([]);
@@ -20,16 +21,12 @@ const ItemListContainer = () => {
     }, 2000);
 
     return () => {
-      setItems([])
-    }
+      setItems([]);
+    };
   }, [brandName]);
 
-  if(items.length === 0){
-    return (
-      <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    )
+  if (items.length === 0) {
+    return <Spinner />;
   }
 
   return (
