@@ -21,9 +21,7 @@ const ItemDetail = ({ item }) => {
   const { isInCart, addToCart, cantOfItem } = useContext(CartContext);
 
   const onAdd = (cnt) => {
-    return cnt === 0
-      ? console.error(`${cnt} no es una cantidad validad`)
-      : addToCart(item, cnt);
+    return cnt > 0 && addToCart(item, cnt)
   };
 
   if(item.name === undefined){
@@ -42,7 +40,7 @@ const ItemDetail = ({ item }) => {
       <ItemCount initial={cantOfItem(item.id)} stock={stock} onAdd={onAdd} />
       {isInCart(item.id) && 
         <Link to="/cart" className={link}>
-          <button className={goCartBtn}>Terminar compra</button>
+          <button className={goCartBtn}>Terminar mi compra</button>
         </Link>
       }
     </div>
