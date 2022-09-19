@@ -18,7 +18,7 @@ const ItemDetail = ({ item }) => {
     link,
   } = styles;
 
-  const { isInCart, addToCart } = useContext(CartContext);
+  const { isInCart, addToCart, cantOfItem } = useContext(CartContext);
 
   const onAdd = (cnt) => {
     return cnt === 0
@@ -39,13 +39,12 @@ const ItemDetail = ({ item }) => {
       <h3 className={itemBrand}>{brand}</h3>
       <p className={itemDescription}>{description}</p>
       <span className={itemPrice}>${price}</span>
-      {isInCart(item.id) ? (
+      <ItemCount initial={cantOfItem(item.id)} stock={stock} onAdd={onAdd} />
+      {isInCart(item.id) && 
         <Link to="/cart" className={link}>
-          <button className={goCartBtn}>Ir al carrito</button>
+          <button className={goCartBtn}>Terminar compra</button>
         </Link>
-        ) : (
-        <ItemCount initial={0} stock={stock} onAdd={onAdd} />
-      )}
+      }
     </div>
   )
 };

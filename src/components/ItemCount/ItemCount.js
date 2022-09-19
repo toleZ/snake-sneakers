@@ -2,7 +2,7 @@ import { GoDash, GoPlus } from "react-icons/go";
 import styles from "./ItemCount.module.css";
 import { useState } from "react";
 
-const ItemCount = ({ stock, initial, onAdd }) => {
+const ItemCount = ({ stock, initial = 1, onAdd }) => {
   const { itemQuantContainer, itemQuant, btns, addCartBtn } = styles;
   const [quant, setQuant] = useState(initial);
 

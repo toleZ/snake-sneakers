@@ -32,8 +32,13 @@ const CartProvider = ({children}) => {
     return [...cart].reduce((acc, cur) => acc + cur.cant, 0)
   }
 
+  const cantOfItem = (itemId) => {
+    const item = [...cart].find(e => e.id === itemId)
+    return item?.cant
+  }
+
   return (
-    <CartContext.Provider value={{cart, addToCart, removeItem, clear, isInCart, cartItems}}>
+    <CartContext.Provider value={{cart, addToCart, removeItem, clear, isInCart, cartItems, cantOfItem}}>
       {children}
     </CartContext.Provider>
   )
