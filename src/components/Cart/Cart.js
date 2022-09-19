@@ -8,7 +8,7 @@ const Cart = () => {
   const { cart } = useContext(CartContext);
   
   return (
-    <main>
+    <>
       <h1 style={{ textAlign: "center" , fontFamily: 'Open Sans'}}>Carrito</h1>
       {
         cart.length > 0 ?
@@ -17,7 +17,7 @@ const Cart = () => {
           )) :
           <h2 style={{fontFamily: "Overpass", textAlign: "Center", fontSize: "1.5rem"}}>No tienes ningun producto en tu carrito, puedes ir al <Link to='/'>inicio</Link> para empezar a agregar productos</h2>
       }
-    </main>
+    </>
   );
 };
 

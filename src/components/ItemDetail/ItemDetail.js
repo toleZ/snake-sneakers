@@ -25,7 +25,15 @@ const ItemDetail = ({ item }) => {
       : addToCart(item, cnt);
   };
 
-  return item.name !== undefined ? (
+  if(item.name === undefined){
+    return (
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    )
+  }
+
+  return (
     <div className={itemDetailContainer}>
       <img src={img} alt={`${brand} shoes`} className={itemImg} />
       <h2 className={itemTitle}>{name}</h2>
@@ -36,15 +44,11 @@ const ItemDetail = ({ item }) => {
         <Link to="/cart" className={link}>
           <button className={goCartBtn}>Ir al carrito</button>
         </Link>
-      ) : (
+        ) : (
         <ItemCount initial={0} stock={stock} onAdd={onAdd} />
       )}
     </div>
-  ) : (
-    <div class="spinner-border text-primary" role="status">
-      <span class="visually-hidden">Loading...</span>
-    </div>
-  );
+  )
 };
 
 export default ItemDetail;
