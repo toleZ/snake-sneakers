@@ -29,7 +29,7 @@ const CartProvider = ({children}) => {
   }
 
   const cartItems = () => {
-    return [...cart].reduce((a, b)=> a.cant + b.cant, 0)
+    return [...cart].reduce((acc, cur) => acc + cur.cant, 0)
   }
 
   return (

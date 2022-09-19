@@ -3,7 +3,7 @@ import { BsFillTrashFill } from "react-icons/bs";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
-const CartDetail = ({item}) => {
+const CartDetail = ({ item }) => {
   const { removeItem } = useContext(CartContext);
   const { itemCard, itemInfo, itemName, itemBrand, itemImg, btn } = styles;
 
