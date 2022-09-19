@@ -10,8 +10,8 @@ const CartWidget = () => {
     <Link to={'/cart'} style={{textDecoration: 'none'}}>
       <button className="btn btn-outline-success ms-2 d-flex justify-content-center align-items-center" type="submit">
         {
-          cartItems() > 0 &&
-            <span style={{margin: '0 5px'}}>{cartItems()}</span>
+          cartItems() > 0 && 
+          <span style={{margin: '0 5px'}}>{cartItems()}</span>
         }
         <BsCart />
       </button>
