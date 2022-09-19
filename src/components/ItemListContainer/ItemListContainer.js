@@ -8,7 +8,6 @@ const ItemListContainer = () => {
   const { brandName } = useParams();
 
   useEffect(() => {
-    setItems([])
     setTimeout(() => {
       fetch("https://63064480dde73c0f8457299d.mockapi.io/sneakers")
         .then((res) => res.json())
@@ -19,6 +18,10 @@ const ItemListContainer = () => {
         })
         .catch((error) => console.warn(error));
     }, 2000);
+
+    return () => {
+      setItems([])
+    }
   }, [brandName]);
 
   if(items.length === 0){

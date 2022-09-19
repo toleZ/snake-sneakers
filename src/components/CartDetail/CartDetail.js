@@ -8,7 +8,7 @@ const CartDetail = ({ item }) => {
   const { itemCard, itemInfo, itemName, itemBrand, itemImg, btn } = styles;
 
   return (
-    <div key={item.id} className={itemCard}>
+    <div className={itemCard}>
       <div style={{ display: "flex" }}>
         <img src={item.img} alt={item.name} className={itemImg} />
         <span className={itemInfo}>
