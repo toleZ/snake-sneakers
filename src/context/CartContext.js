@@ -50,6 +50,10 @@ const CartProvider = ({ children }) => {
     return item?.cant;
   };
 
+  const totalCart = () => {
+    return cart.reduce((acc, cur) => acc += cur.price * cur.cant, 0)
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -61,6 +65,7 @@ const CartProvider = ({ children }) => {
         cartItems,
         cantOfItem,
         updateItemCant,
+        totalCart
       }}
     >
       {children}

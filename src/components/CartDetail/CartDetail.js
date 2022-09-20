@@ -1,5 +1,5 @@
 import styles from "./CartDetail.module.css";
-import { BsFillTrashFill } from "react-icons/bs";
+import { FiPlus } from "react-icons/fi";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
@@ -15,6 +15,12 @@ const CartDetail = ({ item }) => {
           <h3 className={itemName}>{item.name}</h3>
           <h4 className={itemBrand}>{item.brand}</h4>
         </span>
+
+        <span>
+          Cantidad: {item.cant} |
+          Precio: {item.price} |
+          Total: {item.price * item.cant}
+        </span>
       </div>
       <button
         className={btn}
@@ -22,7 +28,7 @@ const CartDetail = ({ item }) => {
           removeItem(item.id);
         }}
       >
-        <BsFillTrashFill />
+        <FiPlus />
       </button>
     </div>
   );
