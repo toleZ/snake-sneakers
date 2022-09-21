@@ -6,26 +6,27 @@ import { CartContext } from "../../context/CartContext";
 const CartDetail = ({ item }) => {
   const { removeItem } = useContext(CartContext);
   const { itemCard, itemInfo, itemName, itemBrand, itemImg, btn } = styles;
+  const {id, name, brand, img, price, cant} = item
 
   return (
     <div className={itemCard}>
       <div style={{ display: "flex" }}>
-        <img src={item.img} alt={item.name} className={itemImg} />
+        <img src={img} alt={name} className={itemImg} />
         <span className={itemInfo}>
-          <h3 className={itemName}>{item.name}</h3>
-          <h4 className={itemBrand}>{item.brand}</h4>
+          <h3 className={itemName}>{name}</h3>
+          <h4 className={itemBrand}>{brand}</h4>
         </span>
 
         <span>
-          Cantidad: {item.cant} |
-          Precio: {item.price} |
-          Total: {item.price * item.cant}
+          Cantidad: {cant} |
+          Precio: ${price} |
+          Total: ${price * cant}
         </span>
       </div>
       <button
         className={btn}
         onClick={() => {
-          removeItem(item.id);
+          removeItem(id);
         }}
       >
         <FiPlus />

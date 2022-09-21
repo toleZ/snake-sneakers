@@ -12,7 +12,11 @@ const Item = (item) => {
       <h2 className={item__title}>{name}</h2>
       <h3 className={item__brand}>{brand}</h3>
       <span className={item__price}>${price}</span>
-      <Link to={`/sneaker/${name}`}><button className={viewMore__btn}>Ver mas <AiOutlineRight /></button></Link>
+      <Link to={`/sneaker/${id}`}>
+        <button className={viewMore__btn}>
+          Ver mas<AiOutlineRight />
+        </button>
+      </Link>
     </div>
   );
 };

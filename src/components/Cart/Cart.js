@@ -15,7 +15,7 @@ const Cart = () => {
   
   return (
     <>
-      <h1 style={{ textAlign: "center" , fontFamily: 'Open Sans'}}>Carrito</h1>
+      <h1 style={{ textAlign: "center" , fontFamily: 'Open Sans'}}>Carrito🛒</h1>
       {
         cart.map((item) => (
           <CartDetail item={item} />
