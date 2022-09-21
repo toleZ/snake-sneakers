@@ -2,9 +2,9 @@ import styles from './Item.module.css'
 import { Link } from 'react-router-dom';
 import { AiOutlineRight } from 'react-icons/ai'
 
-const Item = (item) => {
+const Item = ({item}) => {
   const {item__card, item__img, item__title, item__brand, item__price, viewMore__btn} = styles
-  const {name, brand, img, price, id} = item.item
+  const {name, brand, img, price, id} = item
 
   return (
     <div id={id} className={item__card}>

@@ -1,21 +1,41 @@
 import React, { useState } from "react";
+import { serverTimestamp, addDoc, collection } from "firebase/firestore";
+import { db } from "../../firebaseConfig";
 
-const Form = () => {
+const Form = ({ cart, total, handleId, clearCart }) => {
   const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.dir(e);
-    console.log(`${name} ${lastName}`);
+
+    const order = {
+      buyer: { name, phone, email },
+      items: cart,
+      total,
+      date: serverTimestamp(),
+    };
+
+    const ordersCollection = collection(db, "orders");
+    addDoc(ordersCollection, order)
+      .then((res) => {
+        handleId(res.id);
+        clearCart();
+      })
+      .catch((error) => console.warn(error));
   };
 
   const handleChangeName = (e) => {
     setName(e.target.value);
   };
 
-  const handleChangeLastName = (e) => {
-    setLastName(e.target.value);
+  const handleChangePhone = (e) => {
+    setPhone(e.target.value);
+  };
+
+  const handleChangeEmail = (e) => {
+    setEmail(e.target.value);
   };
 
   return (
@@ -30,11 +50,19 @@ const Form = () => {
         />
 
         <input
-          type="text"
-          placeholder="Apellido"
-          name="lastName"
-          value={lastName}
-          onChange={handleChangeLastName}
+          type="number"
+          placeholder="Telefono"
+          name="phone"
+          value={phone}
+          onChange={handleChangePhone}
+        />
+
+        <input
+          type="email"
+          placeholder="Email"
+          name="email"
+          value={email}
+          onChange={handleChangeEmail}
         />
 
         <button>Enviar</button>

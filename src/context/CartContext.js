@@ -37,7 +37,7 @@ const CartProvider = ({ children }) => {
     setCart(cartFiltered);
   };
 
-  const clear = () => {
+  const clearCart = () => {
     setCart([]);
   };
 
@@ -60,7 +60,7 @@ const CartProvider = ({ children }) => {
         cart,
         addToCart,
         removeItem,
-        clear,
+        clearCart,
         isInCart,
         cartItems,
         cantOfItem,
