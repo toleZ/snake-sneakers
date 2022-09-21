@@ -11,10 +11,12 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     const itemsCollection = collection(db, 'products')
-    
-    const param = brandName ? query(itemsCollection, where('brand', '==', brandName)) : itemsCollection
 
-    getDocs(param)
+    const ref = brandName ? 
+      query(itemsCollection, where('brand', '==', brandName)) :
+      itemsCollection
+
+    getDocs(ref)
       .then(res => {
         return res.docs.map(prod => {
           return {
