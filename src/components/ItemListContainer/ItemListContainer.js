@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import Spinner from "../Spinner/Spinner";
-import { collection, getDocs} from 'firebase/firestore'
+import { collection, getDocs, query, where} from 'firebase/firestore'
 import { db } from '../../firebaseConfig'
 
 const ItemListContainer = () => {
@@ -11,18 +11,19 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     const itemsCollection = collection(db, 'products')
-    getDocs(itemsCollection)
+    
+    const param = brandName ? query(itemsCollection, where('brand', '==', brandName)) : itemsCollection
+
+    getDocs(param)
       .then(res => {
-        const prods = res.docs.map(prod => {
+        return res.docs.map(prod => {
           return {
             id: prod.id,
             ...prod.data()
           }
         })
-        brandName
-            ? setItems(prods.filter((e) => e.brand === brandName))
-            : setItems(prods);
       })
+      .then(prods => setItems(prods))
       .catch(error => console.warn(error))
 
     return () => setItems([])
