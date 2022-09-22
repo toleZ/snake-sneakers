@@ -19,7 +19,7 @@ const Cart = () => {
   const total = totalCart()
 
   if(id){
-    return <h2 style={{fontFamily: "Overpass", textAlign: "Center", fontSize: "1.5rem"}}>Gracias por tu compra, tu ID de seguimiento es: {id}</h2>
+    return <h2 style={{fontFamily: "Overpass", textAlign: "Center", fontSize: "1.5rem"}}>Gracias por tu compra, tu ID de seguimiento es: <Link to={`/tracker/${id}`}>{id}</Link></h2>
   }
 
   if(cart.length === 0){

@@ -1,6 +1,7 @@
 import ItemListContainer from "../ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
 import Cart from "../Cart/Cart";
+import Tracker from "../Tracker/Tracker";
 import {Route, Routes} from 'react-router-dom'
 
 const Main = () => {
@@ -11,6 +12,7 @@ const Main = () => {
         <Route path="/brand/:brandName" element={<ItemListContainer />} />
         <Route path="/sneaker/:sneakerId" element={<ItemDetailContainer />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/tracker/:orderId" element={<Tracker />} />
       </Routes>
     </main>
   );

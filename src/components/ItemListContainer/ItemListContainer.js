@@ -31,9 +31,7 @@ const ItemListContainer = () => {
     return () => setItems([])
   }, [brandName])
 
-  if (items.length === 0) {
-    return <Spinner />;
-  }
+  if (items.length === 0) return <Spinner />;
 
   return (
     <>
