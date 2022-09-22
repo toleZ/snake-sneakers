@@ -27,7 +27,7 @@
   height: 70px;
 }
 
-.itemInfo{
+.itemDetail{
  margin: 0 1rem;
 }
 
@@ -62,4 +62,12 @@
 
 .btn:active{
   color: #A83526;
+}
+
+.itemInfo{
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  font-size: 1.2rem;
+  font-family: var(--font-tertiary);
 }
