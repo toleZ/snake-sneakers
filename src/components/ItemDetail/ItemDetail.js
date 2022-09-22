@@ -24,7 +24,7 @@ const ItemDetail = ({ item }) => {
     return cnt > 0 && addToCart(item, cnt)
   };
 
-  if(!item.name) <Spinner />
+  if(!item.name) return <Spinner />
 
   return (
     <div className={itemDetailContainer}>
