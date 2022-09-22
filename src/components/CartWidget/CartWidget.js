@@ -13,7 +13,7 @@ const CartWidget = () => {
           cartItems() > 0 && 
           <span style={{margin: '0 5px'}}>{cartItems()}</span>
         }
-        <BsCart />
+        <BsCart style={{fontSize: '1.5rem'}}/>
       </button>
     </Link>
   );

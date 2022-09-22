@@ -1,6 +1,7 @@
 import CartWidget from "../CartWidget/CartWidget";
 import { GiConverseShoe } from "react-icons/gi";
 import { Link } from 'react-router-dom'
+import TrackerInput from "../TrackerInput/TrackerInput";
 
 const Nav = () => {
   return (
@@ -71,6 +72,8 @@ const Nav = () => {
               </ul>
             </li>
           </ul>
+
+          <TrackerInput />
 
           <form className="d-flex">
             <CartWidget />
