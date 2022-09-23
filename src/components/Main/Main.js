@@ -2,11 +2,20 @@ import ItemListContainer from "../ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
 import Cart from "../Cart/Cart";
 import Tracker from "../Tracker/Tracker";
-import {Route, Routes} from 'react-router-dom'
+import { Route, Routes } from "react-router-dom";
 
 const Main = () => {
   return (
-    <main style={{ margin: "1rem 0", display: "grid", placeContent: "center"}}>
+    <main
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        justifyContent: 'center',
+        alignItems: "flex-start",
+        backgroundImage:
+          'url("https://www.toptal.com/designers/subtlepatterns/uploads/greek-vase.png")',
+      }}
+    >
       <Routes>
         <Route path="/" element={<ItemListContainer />} />
         <Route path="/brand/:brandName" element={<ItemListContainer />} />

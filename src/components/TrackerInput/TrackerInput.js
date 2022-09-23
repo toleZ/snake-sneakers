@@ -6,12 +6,12 @@ const TrackerInput = () => {
   const navigate = useNavigate()
 
   const handleChangeOrderId = e => {
-    setOrderId(e.target.value)
+    setOrderId(e.target.value.replace(/\s/g,''))
   }
 
   const handleSubmit = e => {
     e.preventDefault()
-    navigate(`/tracker/${orderId}`)
+    orderId !== '' && navigate(`/tracker/${orderId}`)
     setOrderId('')
   }
 

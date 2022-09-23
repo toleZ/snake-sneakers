@@ -27,7 +27,7 @@ const Cart = () => {
   }
   
   return (
-    <>
+    <div>
       <h1 style={{ textAlign: "center" , fontFamily: 'Open Sans'}}>Carrito🛒</h1>
       {
         cart.map((item) => (
@@ -36,7 +36,7 @@ const Cart = () => {
       }
       <span className={totalSpan}>Total ${total}</span>
       <Form cart={cart} total={total} handleId={handleId} clearCart={clearCart}/>
-    </>
+    </div>
   );
 };
 
