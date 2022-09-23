@@ -1,0 +1,25 @@
+.itemCard{
+  display: flex;
+  margin: .5rem 0;
+  padding: .5rem;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: .5rem;
+  overflow: hidden;
+}
+
+.itemImg{
+  margin-right: .5rem;
+}
+
+.itemName{
+  font-family: var(--font-primary);
+}
+
+.itemBrand{
+  font-family: var(--font-secondary);
+}
+
+.itemInfo{
+  font-family: var(--font-tertiary);
+}
