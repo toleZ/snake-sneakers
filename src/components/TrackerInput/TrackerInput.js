@@ -12,6 +12,7 @@ const TrackerInput = () => {
   const handleSubmit = e => {
     e.preventDefault()
     navigate(`/tracker/${orderId}`)
+    setOrderId('')
   }
 
   return (
