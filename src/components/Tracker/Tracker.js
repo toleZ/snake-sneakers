@@ -15,19 +15,20 @@ const Tracker = () => {
     const ref = doc(ordersCollection, orderId);
 
     getDoc(ref)
-      .then((res) => setOrder({ id: res.id, ...res.data() }))
+      .then((res) => setOrder({ id: res.id, ...res.data()}))
       .catch((error) => console.warn(error));
     
-    return () => setOrder({})
+    return () => setOrder()
   }, [orderId]);
 
   if(!order) return <Spinner />
+  if(order.items === undefined) return <h1>Nro de orden {orderId} no encontrada</h1>
 
   return(
     <div>
       <h1>Order: {order.id}</h1>
       {
-        order.items.map(item => (
+        order.items?.map(item => (
           <TrackerDetail item={item} key={item.id} />
         ))
       }

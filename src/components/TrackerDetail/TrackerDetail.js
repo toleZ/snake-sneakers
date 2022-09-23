@@ -8,9 +8,7 @@ const TrackerDetail = ({ item }) => {
         <span>
           <h3>{name}</h3>
           <h4>{brand}</h4>
-        </span>
 
-        <span>
           Cantidad: {cant} 
           | Precio: ${price} 
           | Total: ${price * cant}
