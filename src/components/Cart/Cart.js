@@ -1,41 +1,86 @@
-//import Form from "../Form/Form"
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import CartDetail from "../CartDetail/CartDetail";
 import { Link } from "react-router-dom";
-import styles from './Cart.module.css'
+import styles from "./Cart.module.css";
 import Form from "../Form/Form";
-import { useState } from "react";
+
+import { Button } from "@mui/material";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const Cart = () => {
-  const {totalSpan} = styles
+  const MySwal = withReactContent(Swal);
+  const { totalSpan } = styles;
   const { cart, totalCart, clearCart } = useContext(CartContext);
 
-  const [id, setId] = useState('')
-  const handleId = id => {
-    setId(id)
+  const [id, setId] = useState("");
+  const handleId = (id) => {
+    setId(id);
+  };
+
+  const total = totalCart();
+
+  const finishBuy = () => {
+    MySwal.fire({
+      title: "Formulario de compra",
+      html: (
+        <Form
+          cart={cart}
+          total={total}
+          handleId={handleId}
+          clearCart={clearCart}
+          alert={MySwal}
+        />
+      ),
+      showConfirmButton: false,
+      allowOutsideClick: false,
+      showCloseButton: true
+    });
+  };
+
+  if (id) {
+    return (
+      <h2
+        style={{
+          fontFamily: "Overpass",
+          textAlign: "Center",
+          fontSize: "1.5rem",
+        }}
+      >
+        Gracias por tu compra, tu ID de seguimiento es:{" "}
+        <Link to={`/tracker/${id}`}>{id}</Link>
+      </h2>
+    );
   }
 
-  const total = totalCart()
-
-  if(id){
-    return <h2 style={{fontFamily: "Overpass", textAlign: "Center", fontSize: "1.5rem"}}>Gracias por tu compra, tu ID de seguimiento es: <Link to={`/tracker/${id}`}>{id}</Link></h2>
+  if (cart.length === 0) {
+    return (
+      <h2
+        style={{
+          fontFamily: "Overpass",
+          textAlign: "Center",
+          fontSize: "1.5rem",
+        }}
+      >
+        No tienes ningun producto en tu carrito, puedes ir al{" "}
+        <Link to="/">inicio</Link> para empezar a agregar productos
+      </h2>
+    );
   }
 
-  if(cart.length === 0){
-    return <h2 style={{fontFamily: "Overpass", textAlign: "Center", fontSize: "1.5rem"}}>No tienes ningun producto en tu carrito, puedes ir al <Link to='/'>inicio</Link> para empezar a agregar productos</h2>
-  }
-  
   return (
     <div>
-      <h1 style={{ textAlign: "center" , fontFamily: 'Open Sans'}}>Carrito🛒</h1>
-      {
-        cart.map((item) => (
-          <CartDetail item={item} key={item.id}/>
-        ))
-      }
+      <h1 style={{ textAlign: "center", fontFamily: "Open Sans" }}>
+        Carrito🛒
+      </h1>
+      {cart.map((item) => (
+        <CartDetail item={item} key={item.id} />
+      ))}
       <span className={totalSpan}>Total ${total}</span>
-      <Form cart={cart} total={total} handleId={handleId} clearCart={clearCart}/>
+      <Button onClick={finishBuy} variant="outlined" fullWidth>
+        Terminar compra
+      </Button>
     </div>
   );
 };

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { serverTimestamp, addDoc, collection } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
+import { Button, Grid, TextField } from "@mui/material";
 
-const Form = ({ cart, total, handleId, clearCart }) => {
+const Form = ({ cart, total, handleId, clearCart, alert }) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -24,6 +25,8 @@ const Form = ({ cart, total, handleId, clearCart }) => {
         clearCart();
       })
       .catch((error) => console.warn(error));
+
+    alert.close();
   };
 
   const handleChangeName = (e) => {
@@ -39,35 +42,57 @@ const Form = ({ cart, total, handleId, clearCart }) => {
   };
 
   return (
-    <div>
-      <form action="" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Nombre"
-          name="name"
-          value={name}
-          onChange={handleChangeName}
-        />
+    <form onSubmit={handleSubmit}>
+      <Grid container direction="column">
+        <Grid item>
+          <TextField
+            margin="dense"
+            type="text"
+            label="Nombre"
+            placeholder="Ingresa tu nombre"
+            value={name}
+            onChange={handleChangeName}
+            name="name"
+            required
+            fullWidth
+          />
+        </Grid>
 
-        <input
-          type="number"
-          placeholder="Telefono"
-          name="phone"
-          value={phone}
-          onChange={handleChangePhone}
-        />
+        <Grid item>
+          <TextField
+            margin="dense"
+            type="email"
+            label="Email"
+            placeholder="email@example.com"
+            value={email}
+            onChange={handleChangeEmail}
+            name="email"
+            required
+            fullWidth
+          />
+        </Grid>
 
-        <input
-          type="email"
-          placeholder="Email"
-          name="email"
-          value={email}
-          onChange={handleChangeEmail}
-        />
+        <Grid item>
+          <TextField
+            margin="dense"
+            type="number"
+            label="Phone"
+            placeholder="+54 341 643-1624"
+            value={phone}
+            onChange={handleChangePhone}
+            name="phone"
+            required
+            fullWidth
+          />
+        </Grid>
 
-        <button>Enviar</button>
-      </form>
-    </div>
+        <Grid item>
+          <Button type="submit" variant="outlined" fullWidth>
+            Submit
+          </Button>
+        </Grid>
+      </Grid>
+    </form>
   );
 };
 
