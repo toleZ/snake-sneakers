@@ -27,12 +27,6 @@ const CartProvider = ({ children }) => {
   };
 
   const removeItem = (itemId) => {
-    /* 
-    const index = cart.findIndex(e => e.id === itemId)
-    const cartCopy = [...cart].splice(index, 1)
-    setCart(cartCopy) 
-    */
-
     const cartFiltered = cart.filter((e) => e.id !== itemId);
     setCart(cartFiltered);
   };
