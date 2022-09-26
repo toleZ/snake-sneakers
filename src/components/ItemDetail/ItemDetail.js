@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import Spinner from '../Spinner/Spinner'
+import { swal } from '../../sweetaler2Config'
 
 const ItemDetail = ({ item }) => {
   const { name, brand, description, img, price, stock } = item;
@@ -21,7 +22,21 @@ const ItemDetail = ({ item }) => {
   const { isInCart, addToCart, cantOfItem } = useContext(CartContext);
 
   const onAdd = (cnt) => {
-    return cnt > 0 && addToCart(item, cnt)
+    if(cnt <= 0) return
+    
+    addToCart(item, cnt)
+    swal.fire({
+      icon: 'success',
+      text: 'Producto agregado al carrito',
+      customClass: {
+        container: 'position-absolute'
+      },
+      showConfirmButton: false,
+      toast: true,
+      timer: 1500,
+      timerProgressBar: true,
+      position: 'top-right'
+    })
   };
 
   if(!item.name) return <Spinner />

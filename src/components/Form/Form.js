@@ -2,13 +2,29 @@ import React, { useState } from "react";
 import { serverTimestamp, addDoc, collection } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
 import { Button, Grid, TextField } from "@mui/material";
+import { swal } from '../../sweetaler2Config'
 
 const Form = ({ cart, total, handleId, clearCart, alert }) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
 
-  const handleSubmit = (e) => {
+  const buyConfirmedAlert = () => {
+    swal.fire({
+      icon: 'success',
+      text: 'Compra completada con exito',
+      customClass: {
+        container: 'position-absolute'
+      },
+      showConfirmButton: false,
+      toast: true,
+      timer: 1500,
+      timerProgressBar: true,
+      position: 'top-right'
+    })
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const order = {
@@ -19,7 +35,7 @@ const Form = ({ cart, total, handleId, clearCart, alert }) => {
     };
 
     const ordersCollection = collection(db, "orders");
-    addDoc(ordersCollection, order)
+    await addDoc(ordersCollection, order)
       .then((res) => {
         handleId(res.id);
         clearCart();
@@ -27,6 +43,7 @@ const Form = ({ cart, total, handleId, clearCart, alert }) => {
       .catch((error) => console.warn(error));
 
     alert.close();
+    buyConfirmedAlert()
   };
 
   const handleChangeName = (e) => {

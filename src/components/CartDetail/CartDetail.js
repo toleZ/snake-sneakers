@@ -2,11 +2,27 @@ import styles from "./CartDetail.module.css";
 import { FiPlus } from "react-icons/fi";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
+import { swal } from '../../sweetaler2Config'
 
 const CartDetail = ({ item }) => {
   const { removeItem } = useContext(CartContext);
   const { itemDetail, itemCard, itemInfo, itemName, itemBrand, itemImg, btn } = styles;
   const {id, name, brand, img, price, cant} = item
+
+  const removeItemAlert = () => {
+    swal.fire({
+      icon: 'success',
+      text: 'Producto eliminado del carrito',
+      customClass: {
+        container: 'position-absolute'
+      },
+      showConfirmButton: false,
+      toast: true,
+      timer: 1500,
+      timerProgressBar: true,
+      position: 'top-right'
+    })
+  }
 
   return (
     <div className={itemCard}>
@@ -27,6 +43,7 @@ const CartDetail = ({ item }) => {
         className={btn}
         onClick={() => {
           removeItem(id);
+          removeItemAlert()
         }}
       >
         <FiPlus />
