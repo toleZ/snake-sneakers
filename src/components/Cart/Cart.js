@@ -4,13 +4,11 @@ import CartDetail from "../CartDetail/CartDetail";
 import { Link } from "react-router-dom";
 import styles from "./Cart.module.css";
 import Form from "../Form/Form";
-
+import { swal } from '../../sweetaler2Config'
 import { Button } from "@mui/material";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
+
 
 const Cart = () => {
-  const MySwal = withReactContent(Swal);
   const { totalSpan } = styles;
   const { cart, totalCart, clearCart } = useContext(CartContext);
 
@@ -22,7 +20,7 @@ const Cart = () => {
   const total = totalCart();
 
   const finishBuy = () => {
-    MySwal.fire({
+    swal.fire({
       title: "Formulario de compra",
       html: (
         <Form
@@ -30,7 +28,7 @@ const Cart = () => {
           total={total}
           handleId={handleId}
           clearCart={clearCart}
-          alert={MySwal}
+          alert={swal}
         />
       ),
       showConfirmButton: false,
