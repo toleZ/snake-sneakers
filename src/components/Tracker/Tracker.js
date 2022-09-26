@@ -22,11 +22,11 @@ const Tracker = () => {
   }, [orderId]);
 
   if(!order) return <Spinner />
-  if(order.items === undefined) return <h1 style={{textAlign: 'center'}}>Nro de orden <span style={{color: '#0d6efd'}}>{order.id}</span> no encontrada 😞</h1>
+  if(order.items === undefined) return <h1 style={{textAlign: 'center'}}>ID de orden <span style={{color: '#0d6efd'}}>{order.id}</span> no encontrada 😞</h1>
 
   return(
     <div>
-      <h1 style={{textAlign: 'center'}}>Order: <span style={{color: '#0d6efd'}}>{order.id}</span></h1>
+      <h1 style={{textAlign: 'center'}}>Orden ID: <span style={{color: '#0d6efd'}}>{order.id}</span></h1>
       {
         order.items?.map(item => (
           <TrackerDetail item={item} key={item.id} />

@@ -105,7 +105,7 @@ const Form = ({ cart, total, handleId, clearCart, alert }) => {
 
         <Grid item>
           <Button type="submit" variant="outlined" fullWidth>
-            Submit
+            Enviar datos
           </Button>
         </Grid>
       </Grid>
