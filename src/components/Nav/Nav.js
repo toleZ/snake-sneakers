@@ -1,13 +1,28 @@
 import CartWidget from "../CartWidget/CartWidget";
 import { GiConverseShoe } from "react-icons/gi";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import TrackerInput from "../TrackerInput/TrackerInput";
+import { useEffect } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../firebaseConfig";
+import { useState } from "react";
 
 const Nav = () => {
+  const [brands, setBrands] = useState([]);
+
+  useEffect(() => {
+    const itemsCollection = collection(db, "products");
+
+    getDocs(itemsCollection)
+      .then((res) => res.docs.map((prod) => prod.data().brand))
+      .then((brands) => setBrands([...new Set(brands)]))
+      .catch((error) => console.warn(error));
+  }, []);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light border-bottom">
       <div className="container-fluid">
-        <Link to={'/'}className="navbar-brand">
+        <Link to={"/"} className="navbar-brand">
           Sneak Sneakers
           <GiConverseShoe />
         </Link>
@@ -25,14 +40,14 @@ const Nav = () => {
         <div className="collapse navbar-collapse" id="navbarColor03">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link" to={'/'}>
+              <Link className="nav-link" to={"/"}>
                 Inicio
               </Link>
             </li>
             <li className="nav-item dropdown">
               <Link
                 className="nav-link dropdown-toggle"
-                to={'/'}
+                to={"/"}
                 id="navbarScrollingDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -44,31 +59,15 @@ const Nav = () => {
                 className="dropdown-menu"
                 aria-labelledby="navbarScrollingDropdown"
               >
-                <li>
-                  <Link to={'/brand/Nike'} className="dropdown-item">
-                    Nike
-                  </Link>
-                </li>
-                <li>
-                  <Link to={'/brand/Air Jordan'} className="dropdown-item">
-                    Air Jordan
-                  </Link>
-                </li>
-                <li>
-                  <Link to={'/brand/Adidas Yeezy'} className="dropdown-item">
-                    Adidas
-                  </Link>
-                </li>
-                <li>
-                  <Link to={'/brand/Converse'} className="dropdown-item">
-                    Converse
-                  </Link>
-                </li>
-                <li>
-                  <Link to={'/brand/New Balance'} className="dropdown-item">
-                  New Balance
-                  </Link>
-                </li>
+                {brands.map((brand) => {
+                  return (
+                    <li>
+                      <Link to={`/brand/${brand}`} className="dropdown-item">
+                        {brand}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </li>
           </ul>
