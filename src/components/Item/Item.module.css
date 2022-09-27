@@ -3,7 +3,8 @@
     margin: .5rem;
     padding: .5rem;
     overflow: hidden;
-    background-color: white;
+    background-color: rgba(255,255,255,0.2);
+    backdrop-filter: blur(3px);
     border: 1px solid #ccc;
     border-radius: .5rem;
     text-align: center;
@@ -29,18 +30,21 @@
 .item__title{
     font-family: var(--font-primary);
     font-size: 1rem;
+    font-weight: bolder;
     margin: .25rem 0;
 }
 
 .item__brand{
     font-family: var(--font-secondary);
-    color: gray;
     font-size: 1rem;
+    font-weight: bold;
+    color: gray;
     margin: .25rem 0;
 }
 
 .item__price{
     font-family: var(--font-tertiary);
+    font-weight: bold;
     color: gray;
     font-size: 1rem;
 }
