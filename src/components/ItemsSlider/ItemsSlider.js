@@ -5,7 +5,7 @@ import ItemsCarousel from 'react-items-carousel';
 import Item from '../Item/Item'
 import {BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill} from 'react-icons/bs'
 
-const ItemsSlider = () => {
+const ItemsSlider = ({itemDeleted}) => {
   const [items, setItems] = useState([]);
   const [activeItemIndex, setActiveItemIndex] = useState(0);
 
@@ -23,11 +23,11 @@ const ItemsSlider = () => {
           }
         })
       })
-      .then(prods => setItems(prods))
+      .then(prods => setItems(prods.filter(item => item.id !== itemDeleted.id)))
       .catch(error => console.warn(error))
 
     return () => setItems([])
-  }, [])
+  }, [itemDeleted])
 
 
   return (
@@ -35,8 +35,8 @@ const ItemsSlider = () => {
       <ItemsCarousel
         requestToChangeActive={setActiveItemIndex}
         activeItemIndex={activeItemIndex}
+        gutter={10}
         numberOfCards={3}
-        gutter={5}
         leftChevron={<button style={btnStyle}>{<BsFillArrowLeftCircleFill/>}</button>}
         rightChevron={<button style={btnStyle}>{<BsFillArrowRightCircleFill />}</button>}
         outsideChevron

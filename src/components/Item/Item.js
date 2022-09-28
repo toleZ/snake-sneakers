@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { AiOutlineRight } from "react-icons/ai";
 
 const Item = ({ item, inCarousel }) => {
-  const itemStyle = inCarousel ? {width: '100%', height: '100%'} : {width: '22.5%', margin:'.5rem'}
+  const itemStyle = inCarousel ? 
+    {width: '100%', height: '100%'} : 
+    {width: '22.5%', margin:'.5rem'}
 
   const {
     item__card,

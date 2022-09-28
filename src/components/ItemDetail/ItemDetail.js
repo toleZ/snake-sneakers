@@ -56,7 +56,7 @@ const ItemDetail = ({ item }) => {
         </Link>
       }
 
-      <ItemsSlider />
+      <ItemsSlider itemDeleted={item}/>
     </div>
   )
 };
