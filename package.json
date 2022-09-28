@@ -19,6 +19,7 @@
     "standard": "^17.0.0",
     "sweetalert2": "^11.4.33",
     "sweetalert2-react-content": "^5.0.3",
+    "usehooks-ts": "^2.7.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

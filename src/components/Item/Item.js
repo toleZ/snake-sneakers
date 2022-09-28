@@ -1,11 +1,16 @@
 import styles from "./Item.module.css";
 import { Link } from "react-router-dom";
 import { AiOutlineRight } from "react-icons/ai";
+import { useWindowSize } from 'usehooks-ts'
 
 const Item = ({ item, inCarousel }) => {
+  const { width } = useWindowSize()
+
   const itemStyle = inCarousel ? 
     {width: '100%', height: '100%'} : 
-    {width: '22.5%', margin:'.5rem'}
+    width <= 390 ?
+      {width: '100%', margin:'.5rem'} :
+      {width: '30%', margin:'.5rem'}
 
   const {
     item__card,
