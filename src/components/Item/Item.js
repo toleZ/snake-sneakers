@@ -22,10 +22,9 @@ const Item = ({ item }) => {
         desde <span style={{ color: "black" }}>${price}</span>
       </span>
       <Link to={`/sneaker/${id}`}>
-        <button className={viewMore__btn}>
-          Ver mas
-          <AiOutlineRight />
-        </button>
+        <span className={viewMore__btn}>
+          Ver mas<AiOutlineRight />
+        </span>
       </Link>
     </div>
   );

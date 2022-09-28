@@ -8,7 +8,7 @@ const CartWidget = () => {
 
   return (
     <Link to={'/cart'} style={{textDecoration: 'none'}}>
-      <button className="btn btn-outline-success ms-2 d-flex justify-content-center align-items-center" type="submit">
+      <button className="form-control btn btn-outline-success d-flex justify-content-center align-items-center" type="submit">
         {
           cartItems() > 0 && 
           <span style={{margin: '0 5px'}}>{cartItems()}</span>

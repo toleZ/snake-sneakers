@@ -74,9 +74,7 @@ const Nav = () => {
 
           <TrackerInput />
 
-          <form className="d-flex">
-            <CartWidget />
-          </form>
+          <CartWidget />
         </div>
       </div>
     </nav>
