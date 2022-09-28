@@ -4,11 +4,14 @@ import { db } from "../../firebaseConfig";
 import ItemsCarousel from 'react-items-carousel';
 import Item from '../Item/Item'
 import {BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill} from 'react-icons/bs'
+import { useWindowSize } from 'usehooks-ts'
 
 const ItemsSlider = ({itemDeleted}) => {
   const [items, setItems] = useState([]);
   const [activeItemIndex, setActiveItemIndex] = useState(0);
+  const { width } = useWindowSize()
 
+  const numberOfCards = width <= 390 ? 1 : 3
   const btnStyle = {border: 'none', background: 'none', fontSize: '1.5rem'}
 
   useEffect(() => {
@@ -36,7 +39,7 @@ const ItemsSlider = ({itemDeleted}) => {
         requestToChangeActive={setActiveItemIndex}
         activeItemIndex={activeItemIndex}
         gutter={10}
-        numberOfCards={3}
+        numberOfCards={numberOfCards}
         leftChevron={<button style={btnStyle}>{<BsFillArrowLeftCircleFill/>}</button>}
         rightChevron={<button style={btnStyle}>{<BsFillArrowRightCircleFill />}</button>}
         outsideChevron
