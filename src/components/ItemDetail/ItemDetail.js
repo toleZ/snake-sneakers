@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import Spinner from '../Spinner/Spinner'
 import { swal } from '../../sweetaler2Config'
+import ItemsSlider from "../ItemsSlider/ItemsSlider";
 
 const ItemDetail = ({ item }) => {
   const { name, brand, description, img, price, stock } = item;
@@ -54,6 +55,8 @@ const ItemDetail = ({ item }) => {
           <button className={goCartBtn}>Terminar mi compra</button>
         </Link>
       }
+
+      <ItemsSlider />
     </div>
   )
 };

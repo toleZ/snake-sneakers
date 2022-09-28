@@ -2,7 +2,9 @@ import styles from "./Item.module.css";
 import { Link } from "react-router-dom";
 import { AiOutlineRight } from "react-icons/ai";
 
-const Item = ({ item }) => {
+const Item = ({ item, inCarousel }) => {
+  const itemStyle = inCarousel ? {width: '100%', height: '100%'} : {width: '22.5%', margin:'.5rem'}
+
   const {
     item__card,
     item__img,
@@ -14,7 +16,7 @@ const Item = ({ item }) => {
   const { name, brand, img, price, id } = item;
 
   return (
-    <div id={id} className={item__card}>
+    <div style={itemStyle} className={item__card}>
       <img className={item__img} src={img} alt={name}></img>
       <h3 className={item__brand}>{brand}</h3>
       <h2 className={item__title}>{name}</h2>

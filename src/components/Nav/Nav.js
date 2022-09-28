@@ -61,7 +61,7 @@ const Nav = () => {
               >
                 {brands.map((brand) => {
                   return (
-                    <li>
+                    <li key={brand}>
                       <Link to={`/brand/${brand}`} className="dropdown-item">
                         {brand}
                       </Link>
