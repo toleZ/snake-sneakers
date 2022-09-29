@@ -36,6 +36,7 @@ const ItemsSlider = ({itemDeleted}) => {
   return (
     <div style={{margin: '2rem 0', padding: `0 40px` }}>
       <ItemsCarousel
+        infiniteLoop={true}
         requestToChangeActive={setActiveItemIndex}
         activeItemIndex={activeItemIndex}
         gutter={10}

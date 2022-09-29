@@ -66,7 +66,7 @@ const Form = ({ cart, total, handleId, clearCart, alert }) => {
             margin="dense"
             type="text"
             label="Nombre"
-            placeholder="Ingresa tu nombre"
+            placeholder="John Doe"
             value={name}
             onChange={handleChangeName}
             name="name"
@@ -93,7 +93,7 @@ const Form = ({ cart, total, handleId, clearCart, alert }) => {
           <TextField
             margin="dense"
             type="number"
-            label="Phone"
+            label="Telefono"
             placeholder="+54 341 643-1624"
             value={phone}
             onChange={handleChangePhone}
