@@ -1,3 +1,4 @@
+import NotFund from "../NotFound/NotFound";
 import ItemListContainer from "../ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
 import Cart from "../Cart/Cart";
@@ -17,6 +18,7 @@ const Main = () => {
       }}
     >
       <Routes>
+        <Route path="*" element={<NotFund />} />
         <Route path="/" element={<ItemListContainer />} />
         <Route path="/brand/:brandName" element={<ItemListContainer />} />
         <Route path="/sneaker/:sneakerId" element={<ItemDetailContainer />} />
