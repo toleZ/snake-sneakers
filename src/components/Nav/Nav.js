@@ -20,7 +20,7 @@ const Nav = () => {
   }, []);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light border-bottom">
+    <nav className="fixed-top bg-light navbar navbar-expand-lg navbar-light border-bottom">
       <div className="container-fluid">
         <Link to={"/"} className="navbar-brand">
           Sneak Sneakers

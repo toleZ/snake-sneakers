@@ -9,6 +9,7 @@ const Main = () => {
   return (
     <main
       style={{
+        padding: '4rem 0',
         minHeight: "100vh",
         display: "flex",
         justifyContent: 'center',
