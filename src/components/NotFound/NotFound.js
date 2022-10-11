@@ -1,9 +1,14 @@
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
+import { useWindowSize } from 'usehooks-ts'
 
 const NotFund = () => {
+  const {width} = useWindowSize()
+
+  const cardWidth = width <= 390 ? '90%' : '40%'
+
   return (
-    <div style={{ alignSelf: "center", textAlign: "center", width: "40%", backgroundColor: 'rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', border: '1px solid #ccc', borderRadius: '1rem', padding: '1rem' }}>
+    <div style={{ alignSelf: "center", textAlign: "center", width: cardWidth, backgroundColor: 'rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', border: '1px solid #ccc', borderRadius: '1rem', padding: '1rem' }}>
       <h1 style={{ fontFamily: "var(--font-primary)" }}>⚠️ 404 ⚠️</h1>
       <h2 style={{ fontFamily: "var(--font-secondary)" }}>
         Pagina no encontrada
