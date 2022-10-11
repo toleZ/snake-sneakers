@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Ecommerce 'Sneak Sneakers'
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Sneak Sneakers brand logo](public/logo512.png)
 
-## Available Scripts
+## Librerias utilizadas
 
-In the project directory, you can run:
+- ### [React router dom](https://reactrouter.com/en/main "Documentacion")
 
-### `npm start`
+  `npm install react-router-dom`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  - Utilizada para el ruteo del sitio.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- ### [Material UI](https://mui.com/ "Documentacion")
 
-### `npm test`
+  `npm install @mui/material @emotion/react @emotion/styled`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  - Utilizada para reutilizar algunos componentes que nos provee la libreria en el formulario de compra.
 
-### `npm run build`
+- ### [Firabase](https://firebase.google.com/docs?authuser=0&hl=es "Documentacion")
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  `npm install firebase`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  - Base de datos.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- ### [React icons](https://react-icons.github.io/react-icons "Documentacion")
 
-### `npm run eject`
+  `npm install react-icons --save`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  - Iconos en los botones, logo, etc.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- ### [React items carousel](https://kareemaly.github.io/react-items-carousel/ "Documentacion")
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  `npm i react-items-carousel`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  - Utilizada para crear el carousel mostrado en el detalle de cada item.
 
-## Learn More
+- ### [Sweetalert2](https://github.com/sweetalert2/sweetalert2-react-content "Documentacion")
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  `npm install --save sweetalert2 sweetalert2-react-content`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  - Utilizada para mostrar alertas y asi darle una respuesta al usuario de que esta sucediendo. Tambien se la utiliza en el carrito para mostrar el formulario de compra.
 
-### Code Splitting
+- ### [Use-hooks TS](https://usehooks-ts.com/ "Documentacion")
+  `npm i usehooks-ts`
+  - Utilizando mas que todo el metodo useWindowSize para crear algunas 'meadia queries'.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Pasos para levantar el proyecto en local
 
-### Analyzing the Bundle Size
+1. `git clone https://github.com/toleZ/snake-sneakers`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+2. `npm i`
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. `npm start`
